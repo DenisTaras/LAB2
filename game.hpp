@@ -8,7 +8,6 @@
 #include "Attack.hpp"
 #include "Play.hpp"
 
-
 int checkwin(Field& f, sf::Vector2f& start, sf::Vector2f& end){
     int len = f.Get_Lenght();
     std::string str[4] = {"         ", "         ", "         ", "         "};
@@ -86,6 +85,12 @@ int checkwin(Field& f, sf::Vector2f& start, sf::Vector2f& end){
                 end.y = j - k2[3];
                 return 2;
             }
+            k1[0]=k1[1]=k1[2]=k1[3]=0;
+            k2[0]=k2[1]=k2[2]=k2[3]=0;
+            str[0] = "         ";
+            str[1] = "         ";
+            str[2] = "         ";
+            str[3] = "         ";
         }
     }
     return 0;
@@ -176,7 +181,7 @@ class GamePvP {
                             if(playsh && f.Get(x/step - 1, y/step - 1) == ' ' && !gameover){
                                 f.Set(x/step - 1, y/step - 1, 'O');
                                 sf::CircleShape  answ(step/2.f - 4.f) ;
-                                answ.setFillColor(sf::Color(100, 250, 50));
+                                answ.setFillColor(sf::Color(255, 0, 204));
                                 answ.setPosition((x/step)*step + 3, (y/step)*step + 3);
                                 circls.push_back(answ);
                                 playsh = false;
@@ -207,7 +212,7 @@ class GamePvP {
                             }else if(!playsh && f.Get(x/step - 1, y/step - 1 ) == ' ' && !gameover){
                                 f.Set(x/step - 1, y/step - 1, 'X');
                                 sf::CircleShape  answ(step/2.f, 3);
-                                answ.setFillColor(sf::Color(0, 100, 50));
+                                answ.setFillColor(sf::Color(218, 112, 214));
                                 answ.setPosition((x/step)*step , (y/step)*step + 5);
                                 tringls.push_back(answ);
                                 playsh = true;
@@ -242,7 +247,7 @@ class GamePvP {
                     }
                 }
                 
-                window.clear(sf::Color(255,252,200,255));
+                window.clear(sf::Color(255,195,117,255));
                 for(int i = 0; i < circls.size(); i++){
                     window.draw(circls[i]);
                 }
@@ -348,7 +353,7 @@ class GameAI {
                             if(playsh && f.Get(x/step - 1, y/step - 1) == ' ' && !gameover){
                                 f.Set(x/step - 1, y/step - 1, 'O');
                                 sf::CircleShape  answ(step/2.f - 4.f) ;
-                                answ.setFillColor(sf::Color(100, 250, 50));
+                                answ.setFillColor(sf::Color(59, 131, 189));
                                 answ.setPosition((x/step)*step + 3, (y/step)*step + 3);
                                 circls.push_back(answ);
                                 playsh = false;
@@ -378,15 +383,15 @@ class GameAI {
                                 }
                             }
                             if(!playsh && !gameover){
-                                int px, py;
+                                int px = 0, py = 0;
                                 aiplayer.Selection(f, px , py);
                                 f.Set(px, py, 'X');
                                 sf::CircleShape  answ(step/2.f, 3);
-                                answ.setFillColor(sf::Color(0, 100, 50));
-                                answ.setPosition(px*step + step, py*step + step + 5);
+                                answ.setFillColor(sf::Color(170,240,209));
+                                answ.setPosition((px + 1)*step , (py + 1)*step + 5);
                                 tringls.push_back(answ);
                                 playsh = true;
-                                //tok.play();
+                                tok.play();
                                 win = checkwin(f, start, end);
                                 if(win) {
                                     gameover = true;
@@ -417,7 +422,7 @@ class GameAI {
                     }
                 }
                 
-                window.clear(sf::Color(255,252,200,255));
+                window.clear(sf::Color(215,125,49,255));
                 for(int i = 0; i < circls.size(); i++){
                     window.draw(circls[i]);
                 }

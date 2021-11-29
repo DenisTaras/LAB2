@@ -121,25 +121,25 @@ public:
         }
         
         else if(capability == 4 && potencial == 1){
-            return 7;
+            return 14;
         }
         else if(capability == 3 && potencial == 2){
-            return 12;
+            return 20;
         }
         else if(capability == 3 && potencial == 1){
             return 5;
         }
         else if(capability == 2 && potencial == 2){
-            return 6;
+            return 7;
         }
         else if(capability == 2 && potencial == 1){
             return 2;
         }
         else if(capability == 1 && potencial == 2){
-            return 0.25;
+            return 0.5;
         }
         else if(capability == 1 && potencial == 1){
-            return 0.1;
+            return 0.2;
         }
         else 
         {

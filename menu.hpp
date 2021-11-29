@@ -18,8 +18,8 @@ class Menu{
             button1.setSize(sf::Vector2f(_w / 2, _h / 3 - 30));
             button2.setSize(sf::Vector2f(_w / 2, _h / 3 - 30));
 
-            button1.setFillColor(sf::Color::White);
-            button2.setFillColor(sf::Color::White);
+            button1.setFillColor(sf::Color(112,66,20));
+            button2.setFillColor(sf::Color(112,66,20));
 
             button1.setOutlineThickness(10.f);
             button2.setOutlineThickness(10.f);
@@ -31,7 +31,7 @@ class Menu{
             button2.setPosition(sf::Vector2f(_w / 4, 2 * _h / 3));
         }
         void Init(){
-            if (!font.loadFromFile("arial.ttf")) {
+            if (!font.loadFromFile("KarloCham-Brush.otf")) {
                 std::cerr << "ERROR LOAD FONT" << std::endl;
                 return;
             }
@@ -40,7 +40,7 @@ class Menu{
             maintext.setFont(font);
             maintext.setString(L"Крестики-нолики");
             text1.setString(L"ПВП");
-            text2.setString(L"ComputerMind");
+            text2.setString(L"ПВЕ");
 
             text1.setFillColor(sf::Color::Black);
             text2.setFillColor(sf::Color::Black);
@@ -49,7 +49,7 @@ class Menu{
             maintext.setCharacterSize(sizewind.y / 10);
             text1.setCharacterSize(sizewind.y / 10 );
             text2.setCharacterSize(sizewind.y / 10 );
-            maintext.setPosition(sf::Vector2f(sizewind.x/4, 0));
+            maintext.setPosition(sf::Vector2f(sizewind.x/8, 0));
             text1.setPosition(sf::Vector2f(sizewind.x/4 + 10.f, sizewind.y / 3  + 35));
             text2.setPosition(sf::Vector2f(sizewind.x/4 + 10.f, 2 * sizewind.y / 3 + 35));
         }
@@ -111,7 +111,7 @@ class Menu{
                     }
                 }
 
-                mainwind.clear(sf::Color(252,200,230,255));
+                mainwind.clear(sf::Color(132,195,190,255));
                 mainwind.draw(button1);
                 mainwind.draw(button2);
                 mainwind.draw(text1);
